@@ -12,28 +12,21 @@
     </head>
 
     <body>
-    <h4>Listado de etiquetas</h4>
-    <table>
-        @forelse($tags as $tag)
-
-        @empty
-            <tr>
-                <td>
-                    <p>No hay etiquetas</p>
-                </td>
-            </tr>
-        @endforelse
-    </table><h4>Listado de etiquetas</h4>
-    <table>
-        @forelse($tags as $tag)
-
-        @empty
-            <tr>
-                <td>
-                    <p>No hay etiquetas</p>
-                </td>
-            </tr>
-        @endforelse
-    </table>
+        <h4>Listado de etiquetas</h4>
+        <table>
+            @forelse($tags as $tag)
+                <tr>
+                    <td>
+                        <p>{{ $tag->name }}</p>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td>
+                        <p>No hay etiquetas</p>
+                    </td>
+                </tr>
+            @endforelse
+        </table>
     </body>
 </html>
