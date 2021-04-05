@@ -28,11 +28,15 @@
                         <td class="border px-4 py-2">
                             <p>{{ $tag->name }}</p>
                         </td>
+
+                        <td class="border px-4 py-2">
+                            <p>{{ $tag->slug }}</p>
+                        </td>
                         <td class="border px-4 py-2">
                             <form action="tags/{{ $tag->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Eliminar" class="px-4 rounded bg-red-500 text-white cursor-pointer"/>
+                                <input type="submit" value="Eliminar" class="p-2 rounded bg-red-500 text-white cursor-pointer"/>
                             </form>
                         </td>
                     </tr>
