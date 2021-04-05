@@ -7,3 +7,6 @@ Route::get('/', function () {
         "tags" => App\Models\Tag::get()
     ]);
 });
+
+
+Route::resource('/tags', App\Http\Controllers\TagController::class);
