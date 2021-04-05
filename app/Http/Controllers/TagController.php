@@ -12,4 +12,10 @@ class TagController extends Controller
 
         return redirect('/');
     }
+
+    public function destroy($id){
+        Tag::destroy($id);
+
+        return redirect('/');
+    }
 }
