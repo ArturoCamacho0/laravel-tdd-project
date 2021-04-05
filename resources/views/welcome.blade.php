@@ -15,6 +15,13 @@
 
     <body class="bg-gray-200 py-10">
         <div class="max-w-lg bg-white mx-auto p-5 rounded shadow">
+            @if($errors->any())
+                <ul class="list-none p-4 mb-4 bg-red-100 text-red-500">
+                   @foreach($errors->all() as $error)
+                       <li>{{ $error }}</li>
+                   @endforeach
+                </ul>
+            @endif
             <form action="tags" method="POST" class="flex mb-4">
                 @csrf
                 <input type="text" name="name" class="rounded-l bg-gray-200 p-4 w-full outline-none" placeholder="Nueva etiqueta"/>
@@ -22,7 +29,7 @@
             </form>
 
             <h4 class="text-lg text-center mb-4">Listado de etiquetas</h4>
-            <table>
+            <table class="container">
                 @forelse($tags as $tag)
                     <tr>
                         <td class="border px-4 py-2">
@@ -32,11 +39,11 @@
                         <td class="border px-4 py-2">
                             <p>{{ $tag->slug }}</p>
                         </td>
-                        <td class="border px-4 py-2">
+                        <td class="border px-4 py-2 flex">
                             <form action="tags/{{ $tag->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Eliminar" class="p-2 rounded bg-red-500 text-white cursor-pointer"/>
+                                <input type="submit" value="Eliminar" class="px-4 rounded bg-red-500 text-white cursor-pointer"/>
                             </form>
                         </td>
                     </tr>
